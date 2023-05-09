@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package mailchat;
+
+service MailChat {
+  rpc SendEmail (EmailRequest) returns (EmailResponse) {}
+  rpc Chat (stream ChatMessageRequest) returns (stream ChatMessageResponse) {}
+}
+
+message EmailRequest {
+  string sender = 1;
+  string recipient = 2;
+  string subject = 3;
+  string body = 4;
+}
+
+message EmailResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message ChatMessageRequest {
+  string sender = 1;
+  string recipient = 2;
+  string message = 3;
+}
+
+message ChatMessageResponse {
+  string sender = 1;
+  string message = 2;
+}
