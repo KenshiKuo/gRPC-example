@@ -2,7 +2,7 @@
 
 ## Javascript
 
-[grpc-node](https://github.com/grpc/grpc-node)
+[grpc-node](https://github.com/grpc/grpc-node)  
 install require package for gRPC
 
 ```bash
@@ -19,9 +19,13 @@ Create a script in your package.json file to run the code generation. Update the
 "scripts": {
   "generate:grpc": "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:../grpc --grpc_out=../grpc --proto_path=../grpc ../grpc/grpc.proto"
 }
-
 ```
 
+Run the script to generate the JavaScript code. Open your terminal or command prompt, navigate to the root directory of your project, and run the following command:
+
+```bash
+npm run generate:grpc
+```
 
 ## Getting started
 
