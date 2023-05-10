@@ -1,5 +1,26 @@
 # gRPC example
 
+## Javascript
+
+[grpc-node](https://github.com/grpc/grpc-node)
+install require package for gRPC
+
+```bash
+npm install @grpc/grpc-js
+npm install @grpc/proto-loader
+npm install grpc-tools --save-dev
+```
+
+## generate code for Javascript
+
+Create a script in your package.json file to run the code generation. Update the "scripts" section in your package.json file to include the following:
+
+```json
+"scripts": {
+  "generate:grpc": "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:../grpc --grpc_out=../grpc --proto_path=../grpc ../grpc/grpc.proto"
+}
+
+```
 
 
 ## Getting started
