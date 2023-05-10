@@ -53,7 +53,7 @@ func main() {
 	s := grpc.NewServer()
 	pb.RegisterMailChatServer(s, &mailChatServer{})
 
-	log.Println("gRPC server listening for request")
+	log.Println("gRPC server listening on port 50000.")
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
 	}
