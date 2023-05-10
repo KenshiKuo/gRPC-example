@@ -21,12 +21,12 @@ const client = new mailchat.MailChat(
 
 // Call the SendEmail method on the gRPC service
 var mailRequest = {
-  sender: "kenshi@example.com",
+  sender: "kenshikuo@example.com",
   recipient: "kenshikuo@example.com",
   subject: "Hello Kenshi",
   body: "World has changed a lot.",
 };
-client.SendEmail(mailRequest, (err, response) => {
+client.sendEmail(mailRequest, (err, response) => {
   if (err) {
     console.error(err);
     return;
