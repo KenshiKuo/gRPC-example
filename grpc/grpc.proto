@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-option go_package = "./mailchat";
+option go_package = "./grpc";
 
-package mailchat;
+package grpc;
 
 service MailChat {
   rpc SendEmail (EmailRequest) returns (EmailResponse) {}
