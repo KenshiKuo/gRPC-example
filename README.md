@@ -27,6 +27,28 @@ Run the script to generate the JavaScript code. Open your terminal or command pr
 npm run generate:grpc
 ```
 
+## Go
+
+Install the protocol compiler plugins for Go using the following commands:
+
+```bash
+go install google.golang.org/protobuf/cmd/protoc-gen-go
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc
+```
+
+Update your PATH so that the protoc compiler can find the plugins:
+
+```bash
+export PATH="$PATH:$(go env GOPATH)/bin"
+```
+
+## Generate Go code
+
+```bash
+protoc --go_out=. --go_opt=paths=source_relative \
+    --go-grpc_out=. --go-grpc_opt=paths=source_relative grpc.proto
+```
+
 ## Suggestions for a good README
 Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
 
