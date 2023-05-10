@@ -2,6 +2,8 @@ syntax = "proto3";
 
 option go_package = "./mailchat";
 
+package mailchat;
+
 service MailChat {
   rpc SendEmail (EmailRequest) returns (EmailResponse) {}
   rpc Chat (stream ChatMessageRequest) returns (stream ChatMessageResponse) {}
