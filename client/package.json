@@ -2,13 +2,13 @@
   "dependencies": {
     "@grpc/grpc-js": "^1.8.14",
     "@grpc/proto-loader": "^0.7.7",
-    "grpc": "^1.24.11"
+    "grpc": "^1.24.11",
+    "grpc-tools": "^1.12.4"
   },
   "name": "client",
   "version": "1.0.0",
   "description": "gRPC client implement with NodeJS",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
