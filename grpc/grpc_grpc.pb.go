@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.21.12
-// source: grpc/grpc.proto
+// source: grpc.proto
 
 package mailchat
 
@@ -36,7 +36,7 @@ func NewMailChatClient(cc grpc.ClientConnInterface) MailChatClient {
 
 func (c *mailChatClient) SendEmail(ctx context.Context, in *EmailRequest, opts ...grpc.CallOption) (*EmailResponse, error) {
 	out := new(EmailResponse)
-	err := c.cc.Invoke(ctx, "/MailChat/SendEmail", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/mailchat.MailChat/SendEmail", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -44,7 +44,7 @@ func (c *mailChatClient) SendEmail(ctx context.Context, in *EmailRequest, opts .
 }
 
 func (c *mailChatClient) Chat(ctx context.Context, opts ...grpc.CallOption) (MailChat_ChatClient, error) {
-	stream, err := c.cc.NewStream(ctx, &MailChat_ServiceDesc.Streams[0], "/MailChat/Chat", opts...)
+	stream, err := c.cc.NewStream(ctx, &MailChat_ServiceDesc.Streams[0], "/mailchat.MailChat/Chat", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -116,7 +116,7 @@ func _MailChat_SendEmail_Handler(srv interface{}, ctx context.Context, dec func(
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/MailChat/SendEmail",
+		FullMethod: "/mailchat.MailChat/SendEmail",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(MailChatServer).SendEmail(ctx, req.(*EmailRequest))
@@ -154,7 +154,7 @@ func (x *mailChatChatServer) Recv() (*ChatMessageRequest, error) {
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var MailChat_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "MailChat",
+	ServiceName: "mailchat.MailChat",
 	HandlerType: (*MailChatServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -170,5 +170,5 @@ var MailChat_ServiceDesc = grpc.ServiceDesc{
 			ClientStreams: true,
 		},
 	},
-	Metadata: "grpc/grpc.proto",
+	Metadata: "grpc.proto",
 }
