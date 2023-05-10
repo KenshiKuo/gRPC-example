@@ -1,17 +1,19 @@
 {
   "dependencies": {
     "@grpc/grpc-js": "^1.8.14",
-    "@grpc/proto-loader": "^0.7.7",
-    "grpc": "^1.24.11",
-    "grpc-tools": "^1.12.4"
+    "@grpc/proto-loader": "^0.7.7"
   },
   "name": "client",
   "version": "1.0.0",
   "description": "gRPC client implement with NodeJS",
-  "main": "index.js",
+  "main": "client.js",
   "scripts": {
+    "generate:grpc": "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:../grpc --grpc_out=../grpc --proto_path=../grpc ../grpc/grpc.proto",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Kenshi Kuo",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "grpc-tools": "^1.12.4"
+  }
 }

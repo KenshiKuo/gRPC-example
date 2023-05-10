@@ -45,7 +45,7 @@ func (s *mailChatServer) Chat(stream pb.MailChat_ChatServer) error {
 }
 
 func main() {
-	lis, err := net.Listen("tcp", ":50000")
+	lis, err := net.Listen("tcp", ":50051")
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
@@ -53,7 +53,7 @@ func main() {
 	s := grpc.NewServer()
 	pb.RegisterMailChatServer(s, &mailChatServer{})
 
-	log.Println("gRPC server listening on port 50000.")
+	log.Println("gRPC server listening on port 50051.")
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
 	}
