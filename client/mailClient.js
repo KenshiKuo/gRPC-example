@@ -1,6 +1,5 @@
 const grpc = require("@grpc/grpc-js");
 const protoLoader = require("@grpc/proto-loader");
-// const { MailChatClient } = require("../grpc/grpc_grpc_pb");
 
 // Load the protobuf difinition for gRPC service
 const protoPath = __dirname + "/../grpc/grpc.proto";
