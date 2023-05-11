@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"io"
 	"log"
 	"net"
 
@@ -30,6 +31,10 @@ func (s *mailChatServer) Chat(stream pb.MailChat_ChatServer) error {
 	for {
 		req, err := stream.Recv()
 		if err != nil {
+			if err == io.EOF {
+				// End of stream, return nil to close the connection gracefully
+				return nil
+			}
 			return status.Errorf(codes.Unknown, "error receiving message: %v", err)
 		}
 
@@ -37,7 +42,7 @@ func (s *mailChatServer) Chat(stream pb.MailChat_ChatServer) error {
 		log.Printf("Received message: %s\n", req.Message)
 
 		// Send a response message
-		err = stream.Send(&pb.ChatMessageResponse{Message: "Response message" + req.Message, Sender: "Bot"})
+		err = stream.Send(&pb.ChatMessageResponse{Message: req.Message, Sender: "Bot"})
 		if err != nil {
 			return status.Errorf(codes.Unknown, "error sending message: %v", err)
 		}
