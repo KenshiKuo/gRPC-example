@@ -22,7 +22,7 @@ func (s *mailChatServer) SendEmail(ctx context.Context, req *pb.EmailRequest) (*
 	fmt.Println("Subject: ", (*req).Subject)
 	fmt.Println("Body: ", (*req).Body)
 
-	return &pb.EmailResponse{Message: "Email sent successfully"}, nil
+	return &pb.EmailResponse{Message: "Email sent successfully", Success: true}, nil
 }
 
 func (s *mailChatServer) Chat(stream pb.MailChat_ChatServer) error {

@@ -3,7 +3,7 @@ module server
 go 1.20
 
 require (
-	github.com/KenshiKuo/gRPC-example v0.0.0-20230510015703-5374d41bcbba
+	github.com/KenshiKuo/gRPC-example v0.0.0-20230511030823-8ceafb726653
 	google.golang.org/grpc v1.55.0
 )
 
