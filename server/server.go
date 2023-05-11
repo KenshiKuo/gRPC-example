@@ -34,10 +34,10 @@ func (s *mailChatServer) Chat(stream pb.MailChat_ChatServer) error {
 		}
 
 		// Process the received message
-		fmt.Printf("Received message: %s\n", req.Message)
+		log.Printf("Received message: %s\n", req.Message)
 
 		// Send a response message
-		err = stream.Send(&pb.ChatMessageResponse{Message: "Response message"})
+		err = stream.Send(&pb.ChatMessageResponse{Message: "Response message" + req.Message, Sender: "Bot"})
 		if err != nil {
 			return status.Errorf(codes.Unknown, "error sending message: %v", err)
 		}
