@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "./grpc";
+option go_package = "github.com/KenshiKuo/gRPC-example/grpc";
 
 package grpc;
 
