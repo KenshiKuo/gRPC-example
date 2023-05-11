@@ -26,7 +26,8 @@ var mailRequest = {
   subject: "Hello Kenshi",
   body: "World has changed a lot.",
 };
-client.sendEmail(mailRequest, (err, response) => {
+
+client.SendEmail(mailRequest, (err, response) => {
   if (err) {
     console.error(err);
     return;
