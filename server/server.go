@@ -20,8 +20,8 @@ type mailChatServer struct {
 func (s *mailChatServer) SendEmail(ctx context.Context, req *pb.EmailRequest) (*pb.EmailResponse, error) {
 	// Implement your SendEmail logic here
 	log.Println("Email received.")
-	fmt.Println("Subject: ", (*req).Subject)
-	fmt.Println("Body: ", (*req).Body)
+	fmt.Println(req)
+	// fmt.Println("Body: ", (*req).Body)
 
 	return &pb.EmailResponse{Message: "Email sent successfully", Success: true}, nil
 }
@@ -39,7 +39,7 @@ func (s *mailChatServer) Chat(stream pb.MailChat_ChatServer) error {
 		}
 
 		// Process the received message
-		log.Printf("Received message: %s\n", req.Message)
+		log.Printf("Received message: %s\n", req)
 
 		// Send a response message
 		err = stream.Send(&pb.ChatMessageResponse{Message: req.Message, Sender: "Bot"})
