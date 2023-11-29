@@ -11,7 +11,7 @@ npm install @grpc/proto-loader
 npm install grpc-tools --save-dev
 ```
 
-## generate code for Javascript
+## Generate code for Javascript
 
 Create a script in your package.json file to run the code generation. Update the "scripts" section in your package.json file to include the following:
 
